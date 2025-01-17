@@ -15,7 +15,7 @@ app.config['MYSQL_DB'] = 'mydatabase'
 app.config['SESSION_COOKIE_SECURE'] = True  # Send cookies over HTTPS only
 app.config['SESSION_COOKIE_HTTPONLY'] = True  # Prevent JavaScript access
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Mitigate CSRF attacks
-app.secret_key = 'your_secret_key_here'  # Replace with a strong, randomly generated key
+app.secret_key = 'your_secret_key_here' 
 
 mysql = MySQL(app)
 csrf = CSRFProtect(app)
