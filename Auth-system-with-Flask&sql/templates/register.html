@@ -1,0 +1,68 @@
+{% extends 'app.html' %}
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header bg-dark text-white text-center">
+          <h2>Register Form</h2>
+        </div>
+        <div class="card-body">
+          
+          <!-- Registration Form -->
+          <form action="/register" method="POST">
+            {{ form.hidden_tag() }}
+
+            <!-- Name Field -->
+            <div class="mb-3">
+              {{ form.name.label(for="name", class="form-label text-dark fw-bold") }}
+              {{ form.name(id="name", class="form-control") }}
+              {% if form.name.errors %}
+                <div class="text-danger mt-1">
+                  {% for error in form.name.errors %}
+                  <small>{{ error }}</small>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Email Field -->
+            <div class="mb-3">
+              {{ form.email.label(for="email", class="form-label text-dark fw-bold") }}
+              {{ form.email(id="email", class="form-control") }}
+              {% if form.email.errors %}
+                <div class="text-danger mt-1">
+                  {% for error in form.email.errors %}
+                  <small>{{ error }}</small>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Password Field -->
+            <div class="mb-3">
+              {{ form.password.label(for="password", class="form-label text-dark fw-bold") }}
+              {{ form.password(id="password", class="form-control") }}
+              {% if form.password.errors %}
+                <div class="text-danger mt-1">
+                  {% for error in form.password.errors %}
+                  <small>{{ error }}</small>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Submit and Login Buttons -->
+            <div class="d-flex justify-content-between align-items-center">
+              {{ form.submit(class="btn btn-dark") }}
+              <a href="/login" class="btn btn-secondary">Login Page</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
